@@ -7,7 +7,7 @@
 #
 
 RELEASE := 1
-OPT := -Wall
+OPT := -Wall -Wno-narrowing
 ifeq ($(RELEASE),1)
 OPT += -Os
 else
@@ -32,7 +32,7 @@ ifeq ($(ARCH),Darwin)
 endif
 
 ifeq ($(ARCH),Linux)
-	LIB := -lglut -lGLEW -fopenmp $(SRCDIR)/tetgen/libtet.a -lgsl -lgslcblas -lz
+	LIB := -lglut -lGLU -lGL -lGLEW -fopenmp $(SRCDIR)/tetgen/libtet.a -lgsl -lgslcblas -lz
 endif
 
 all:
